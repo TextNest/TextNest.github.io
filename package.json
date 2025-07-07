@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.6"
+    "bootstrap": "^5.3.6",
+    "express": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",
@@ -40,7 +41,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.0",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "husky": "^9.1.7",
     "purgecss": "^7.0.2",
