@@ -98,7 +98,9 @@ o 눌러서 insert 모드 진입
 
 ▼
 
-`c.ServerApp.ip = '*'`로 수정 후 esc → `:wq!` 입력 후 enter
+`c.ServerApp.ip = 'localhost'` → `c.ServerApp.ip = '*'`로 수정
+esc 눌러서 insert 모드 나오기
+`:wq!` 입력 후 enter
 
 ▼
 
@@ -116,7 +118,6 @@ o 눌러서 insert 모드 진입
 ▼
 
 <img width="630" height="547" alt="image" src="https://github.com/user-attachments/assets/107991bb-aacc-4a86-83c6-1d56e52ce4a8" />
-
 
 ▼
 
@@ -147,7 +148,10 @@ o 눌러서 insert 모드 진입
 ```
 // 시스템
 
-- 키워드를 포함하여 이메일 내용을 생성합니다.  - 메일 제목과 본문 내용을 출력합니다.  - 아래 예제와 유사한 포맷으로 작성합니다.  - 예제  
+- 키워드를 포함하여 이메일 내용을 생성합니다.
+- 메일 제목과 본문 내용을 출력합니다.
+- 아래 예제와 유사한 포맷으로 작성합니다.
+- 예제  
 키워드:  
 * 주제: 업무 협조  
 * 요구사항: 요청하신 내용으로 작업했습니다. 확인해주세요.  
@@ -170,7 +174,6 @@ o 눌러서 insert 모드 진입
 * 수신인: □□□ 
 
 
-
 // 사용자 : 
 
 키워드:  
@@ -179,7 +182,6 @@ o 눌러서 insert 모드 진입
 1시간  
 * 발신자: ○○○ 
 * 수신인: □□□ 
-
 ```
 
 → 결과 확인 후 저장
@@ -188,14 +190,15 @@ o 눌러서 insert 모드 진입
 - 내 작업 > 코드 보기 > python > 복사
 
 
-
 2. CLOVA Studio > API 키 > 테스트 API 키 발급
    - api 키 노트 패드에 복사해두기!
+
 
 3. ai-001 서버: 주피터 노트북 실행
    - 서버 터미널에 `jupyter notebook --allow-root` 입력
    - 데몬 화면 떠 있는 상태에서 웹 브라우저로 접속
-     - 검색창에 `공인 ip":8888` 입력
+     - 검색창에 `공인 ip:8888` 입력
+
 
 4. 주피터 노트북: 실습 파일 업로드
    - 주피터 노트북 환경(python3)에서 실습 파일 업로드
@@ -204,26 +207,25 @@ o 눌러서 insert 모드 진입
 
 >UI는 Streamlit 사용
 
-`email-test.ipynb` 내용
+- `email-test.ipynb` 내용
 
 ```python
+# 1
 # streamlit 설치 
-
 !pip install streamlit 
-# <Alt> + <Enter>
+# <Alt> + <Enter>로 셀 실행
 
+# 2
 !pip install streamlit_chat
-# <Alt> + <Enter>
 
-
+# 3
 # 설치 후 버전 확인
 !pip list | grep streamlit 
 
+# 4
 # -*- coding: utf-8 -*-
-
 import requests
 import json
-
 
 class CompletionExecutor:
     def __init__(self, host, api_key, request_id):
@@ -275,6 +277,7 @@ if __name__ == '__main__':
 >- 파이프(`|`): 셸 명령이므로 파이프(`|`)를 사용하여 pip list의 출력을 grep 명령의 입력으로 전달할 수 있습니다. grep은 전달된 텍스트에서 "streamlit" 문자열을 포함하는 줄만 필터링합니다.<br>
 >- 환경 일치: 이 명령은 주피터 노트북이 실행되고 있는 동일한 파이썬 환경에 설치된 패키지 목록을 보여줍니다. 다른 가상 환경에 설치된 패키지는 표시되지 않을 수 있습니다.<br>
 >- 대체 방법: grep 명령을 사용할 수 없는 환경(예: 일부 기본 Windows 환경)에서는 파이썬 코드를 사용하여 동일한 작업을 수행할 수도 있습니다<br>
+
 ```python
 import pip
 for package in pip.get_installed_distributions():
@@ -301,7 +304,7 @@ vi app.py
 
 ▼
 
-`api_key='Bearer <각자의 api키값>',` 부분 수정 → api 값 넣기 
+`api_key='Bearer <각자의 api키값>',` 부분 수정 → 발급받은 api 값 넣기 
 
 ▼
 
@@ -332,7 +335,8 @@ streamlit run app.py
   - 대규모 언어 모델(LLM)을 기반으로 애플리케이션을 구축하기 위한 오픈 소스 프레임워크
   - LLM과 애플리케이션의 통합을 간소화할 수 있도록 설계된 SDK
   - 데이터 소스, 임베딩, 벡터 데이터베이스 등을 랭체인을 이용해 LLM과 '연결'하는 게 핵심
-  ![](https://velog.velcdn.com/images/be2be2/post/dfcfec85-149f-4f40-8fe5-f359ae75932c/image.png)
+
+<img width="1609" height="1050" alt="image" src="https://github.com/user-attachments/assets/982c1080-5958-488c-a553-e0e40f1b0c18" />
 
 
 - 구성 요소
@@ -428,11 +432,14 @@ streamlit run app.py
      - pip 오류 시 서버 터미널에서 `apt install pip`
 
 ```python
+# 1
+# 네이버-랭체인 및 랭체인 커뮤니티 설치
 # 실행은  <CTRL> + <Enter> 
 !pip install -U langchain 
 !pip install -U langchain-naver 
 !pip install langchain-community
 
+# 2
 # 발급받은 API키 값 입력
 import getpass 
 import os 
@@ -443,6 +450,7 @@ os.environ["CLOVASTUDIO_API_KEY"] = getpass.getpass(
 
 # 클로바 스튜디오에서  API키 발급 후 입력 후 <엔터>
 
+# 3
 # Hyper CLOVA X 모델 이용: Chatmodel로 클로바 스튜디오 import 및 테스트
 from langchain_naver import ChatClovaX 
 chat= ChatClovaX( 
@@ -464,32 +472,40 @@ messages = [
 ai_msg = chat.invoke(messages) 
 ai_msg 
 
+# 4
 # 임베딩 도구 이용: 텍스트 임베딩을 위한 CLOVA Embedding API version2 설정 
 # 클로바 스튜디오 > 익스플로러 > 임베딩 클릭
 # 임베딩 v2 선택 후 코드보기 클릭 
 os.environ["NCP_CLOVASTUDIO_APP_ID"] = input("Enter NCP CLOVA Studio App ID: ")
+
 # Embedding API 파이썬 코드 내 ‘request ID’를 Emedding App ID값으로 입력 후 <엔터>
 
+# 5
 from langchain_naver import ClovaXEmbeddings
  embeddings=ClovaXEmbeddings(
  model="bge-m3", #모델명(기본값:clir-emb-dolphin)
  ) 
- 
+
+# 6
 # 임베딩 값을 저장할 ChromoaDB 설치 
 !pip install -qU "langchain-chroma>=0.1.2" 
 
+# 7
 import chromadb 
 from langchain_chroma import Chroma 
 
+# 8
 # 랭체인 Document loader설정 
 !pip install -q pypdf 
 !pip3 install pymupdf 
 !pip3 install tiktoken 
 
+# 9
 import json 
 from langchain_community.document_loaders import PyMuPDFLoader 
 
 
+# 10
 # 실습에 사용할 PDF 파일 업로드
 # 터미널에서 wget https://kr.object.ncloudstorage.com/material/LangChain.pdf
 # 주피터 노트북에서 !pip install wget 해도 되긴 함
@@ -497,10 +513,12 @@ from langchain_community.document_loaders import PyMuPDFLoader
 # 해당 파일을 주피터 노트북 환경에 업로드: 파일 경로 지정
 FILE_PATH = "./LangChain.pdf"
 
+# 11
 # 파일 내 텍스트 읽어오기
 loader = PyMuPDFLoader(FILE_PATH) 
 data = loader.load() 
 
+# 12
 # 파일 내 텍스트를 textsplitter를 이용하여 chunk 단위로 나누고 확인
 from langchain_text_splitters import RecursiveCharacterTextSplitter 
 text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder( 
@@ -512,7 +530,7 @@ documents=text_splitter.split_documents(data)
 print(len(documents)
 print(len(documents[2].page_content)
 
-
+# 13
 # 결과값을 벡터DB에 저장
 vectordb = Chroma.from_documents( 
         documents=documents, 
@@ -526,17 +544,8 @@ results = vectordb.similarity_search_by_vector(
 ) 
 for doc in results: 
     print(f"* {doc.page_content}]")
-```
 
-- HyperCLOVA X언어 모델 기반의 RAG구성 
-  - PromptTemplate은 단일 문자열의 서식을 지정하는 데 사용되며, 일반적으로 간단한 입력에 사용되는 템플릿
-  - PromptTemplate은 Python의 문자열 포맷팅을 사용하여 동적으로 특정한 위치에 입력 값을 포함시킬 수 있어, 다양한 상황에 맞게 프롬프트를 구성 가능
-    - 아래 예제처럼 `{question}`, `{context}`와 같은 사용자 입력 및 매개 변수를 언어 모델에 전달하게 할 수 있음
-  - retriever를 통해 관련 문서를 context로 불러오고, context와 question이 프롬프트 템플릿으로 전달되고, llm 모델을 통해 프롬프트가 실행되고, StrOutputParser를 통해 답변만 파싱해 문자열로 출력 
-
-
-```python
-# 1
+# 14
 from langchain_naver import ChatClovaX 
  
 llm = ChatClovaX( 
@@ -544,7 +553,7 @@ llm = ChatClovaX(
     max_tokens=1800, 
 )
 
-# 2
+# 15
 from langchain_core.prompts import PromptTemplate 
  
 prompt1 = PromptTemplate.from_template( 
@@ -571,7 +580,7 @@ retriever = vectordb.as_retriever(
 )
 
 
-# 3
+# 16
 from langchain_core.runnables import RunnablePassthrough 
 from langchain_core.output_parsers import StrOutputParser 
  
@@ -583,10 +592,16 @@ rag_chain = (
     | StrOutputParser() 
 )
 
-# 4
+# 17
 rag_chain.invoke("CLOVA Studio에 연동하여 LangChain을 사용하려면 필요한 파이썬 최소버전은?") 
 
 
 ```
 
 <img width="1235" height="369" alt="스크린샷 2025-11-13 171459" src="https://github.com/user-attachments/assets/1195f8de-2781-4f8e-ae8f-fab9ecdfa5a7" />
+
+- HyperCLOVA X 언어 모델 기반의 RAG 구성 
+  - PromptTemplate은 단일 문자열의 서식을 지정하는 데 사용되며, 일반적으로 간단한 입력에 사용되는 템플릿
+  - PromptTemplate은 Python의 문자열 포맷팅을 사용하여 동적으로 특정한 위치에 입력 값을 포함시킬 수 있어, 다양한 상황에 맞게 프롬프트를 구성 가능
+    - 아래 예제처럼 `{question}`, `{context}`와 같은 사용자 입력 및 매개 변수를 언어 모델에 전달하게 할 수 있음
+  - retriever를 통해 관련 문서를 context로 불러오고, context와 question이 프롬프트 템플릿으로 전달되고, llm 모델을 통해 프롬프트가 실행되고, StrOutputParser를 통해 답변만 파싱해 문자열로 출력 
