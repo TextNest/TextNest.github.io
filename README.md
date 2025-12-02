@@ -1,4 +1,6 @@
 # TextNest.github.io
+## BLOG
+[velog](https://velog.io/@be2be2)
 
 ## PROJECT
 [ManuAI-talk](https://github.com/TextNest/PandDF_ManuAITalk) <br>
