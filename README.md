@@ -8,3 +8,6 @@
 
 ## BASIC
 [생성형 AI](https://github.com/TextNest/TextNest.github.io/blob/main/Basic/GenerativeAI.md)
+
+### NCP 특강
+[네이버 클라우드 CLOVA Studio 이론](https://github.com/TextNest/TextNest.github.io/blob/main/NaverCloud/CLOVAStudio.md)
