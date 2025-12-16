@@ -9,6 +9,9 @@
 ## BASIC
 [생성형 AI](https://github.com/TextNest/TextNest.github.io/blob/main/Basic/GenerativeAI.md)
 
+### MFU 특강
+
+
 ### NCP 특강
 [CLOVA Studio (1)](https://github.com/TextNest/TextNest.github.io/blob/main/NaverCloud/CLOVAStudio.md) <br>
 [CLOVA Studio (2)](https://github.com/TextNest/TextNest.github.io/blob/main/NaverCloud/CLOVAStudio_2.md) <br>
